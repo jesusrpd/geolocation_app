@@ -1,7 +1,12 @@
+const p_longitud = document.getElementById("longitud")
+const p_latitud = document.getElementById("latitud")
 if (navigator.geolocation) { //check if geolocation is available
     navigator.geolocation.getCurrentPosition(function(position){
       console.log(position);
-    });   
+      console.log(position.coords);
+      p_latitud.innerHTML = `Latitud: ${position.coords.latitude}`
+      p_longitud.innerHTML = `Longitud: ${position.coords.longitude}`
+    });
 }
 const mensajes = document.getElementById("mensajes")
 const respuestas = document.getElementById("respuestas")
